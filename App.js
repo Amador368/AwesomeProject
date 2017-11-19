@@ -1,12 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ProgressBar from './progressBar';
+import ProgressBar from './src/components/progressBar';
+import LoginView from './src/components/loginView';
+import DashboardView from './src/components/dashboardView';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <ProgressBar/>
+        <LoginView/>
+        <DashboardView/>
         <Text style={styles.welcome} >Open up App.js to start working on your app!</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
