@@ -1,22 +1,36 @@
 import React, {Component} from 'react';
+import {StackNavigator} from 'react-navigation';
+import DashboardView from './dashboardView';
 
 import {
-    View, Text, TouchableHighlight,TouchableOpacity, Alert, StyleSheet
+    View, Image, Text, TouchableHighlight,TouchableOpacity, Alert, StyleSheet
 } from 'react-native'
 
 export default class loginView extends React.Component{
+    static navigationOptions = {
+        title : 'Characteres',
+        headerStyle: {
+          backgroundColor: '#212121',
+        },
+        headerTitleStyle: {
+          color: '#fff'
+        }
+    };
+
     render(){
         return(
-            <View>
+            <Image style={styles.container} source={{uri: 'https://images.unsplash.com/photo-1503606426878-b4727b846b8c?auto=format&fit=crop&w=1268&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'}}>
+            <View >
                 <TouchableOpacity onPress={(this.onLogin.bind(this))} style={styles.mybutton}>
-                    <Text>Login</Text>
+                    <Text style={styles.mytext}>Login</Text>
                 </TouchableOpacity>
             </View>
+            </Image>
         )
     }
    
-    aceptar(){
-
+    aceptar(evt){
+         console.log(evt)
     }
     cancelar(){
         
@@ -41,15 +55,25 @@ export default class loginView extends React.Component{
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+       // backgroundColor: '#E91E63',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     mybutton: {
         width: 300,
         height: 30,
-        backgroundColor: 'red',
+        backgroundColor: '#4CAF50',
+        borderColor: '#388E3C',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10,
         marginBottom: 10,
         borderRadius: 8,
-        borderWidth: 1
+        borderWidth: 1,
+    },
+    mytext: {
+        color: '#fff'
     }
   })
