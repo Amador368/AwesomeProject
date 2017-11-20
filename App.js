@@ -2,40 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Navigator, TouchableOpacity, Button, AppRegistry, FlatList} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import LoginView from './src/components/loginView';
-//import DashboardView from './src/components/dashboardView';
-import Viewer from './src/components/viewer';
-
-export default class App extends React.Component {
-
-  static navigationOptions = {
-    title : 'Home',
-    headerStyle: {
-      backgroundColor: '#212121',
-    },
-    headerTitleStyle: {
-      color: '#fff'
-    }
-  };
-  constructor(){
-    super()
-    this.state = {
-      data: [
-        {name: 'Dave'}, {name: 'Bob'}
-      ]
-    }
-  }
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <View>
-        <TouchableOpacity style={styles.mybutton} onPress={() =>navigate('Viewer', {name: 'Ash'}) } >
-          <Text style={styles.mytext}>Login xs</Text>
-          
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+import DashboardView from './src/components/dashboardView';
 
 const styles = StyleSheet.create({
   container: {
@@ -57,8 +24,9 @@ const styles = StyleSheet.create({
 });
 
 const myscreens = StackNavigator({
-  Home: { screen: App },
-  Viewer: { screen: Viewer }
+  Login: { screen: LoginView },
+  Dashboard: { screen: DashboardView }
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => myscreens);
+//AppRegistry.registerComponent('AwesomeProject', () => App);

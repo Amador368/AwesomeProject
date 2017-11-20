@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, } from 'react-native';
+import DashboardView from './dashboardView';
+import { StyleSheet, Text, View, Button, AppRegistry, TouchableOpacity} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
 export default class Viewer extends React.Component {
@@ -14,11 +15,15 @@ export default class Viewer extends React.Component {
     };
     constructor(props){
         super(props)
+        //super()
     }
     render() {
+      const {navigate} = this.props.navigation;
       return(
        <View style={styles.container}>
-        <Text style={styles.mytext}>{this.props.navigation.state.params.name}</Text>
+        <TouchableOpacity style={styles.mybutton} onPress={() =>navigate('DashboardView', {name: 'Ash'}) } >
+          <Text style={styles.mytext}>to dashboard xs</Text>
+        </TouchableOpacity>
        </View>
       );
     }
@@ -35,3 +40,8 @@ export default class Viewer extends React.Component {
         fontSize: 40
     }
   });
+  const myscreens = StackNavigator({
+    DashboardView: { screen: DashboardView },
+    //Viewer: { screen: Viewer }
+  });
+  //AppRegistry.registerComponent('AwesomeProject', () => myscreens);

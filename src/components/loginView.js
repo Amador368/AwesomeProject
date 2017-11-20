@@ -1,28 +1,20 @@
 import React, {Component} from 'react';
-import {StackNavigator} from 'react-navigation';
-import DashboardView from './dashboardView';
-
 import {
     View, Image, Text, TouchableHighlight,TouchableOpacity, Alert, StyleSheet
 } from 'react-native'
 
 export default class loginView extends React.Component{
     static navigationOptions = {
-        title : 'Characteres',
-        headerStyle: {
-          backgroundColor: '#212121',
-        },
-        headerTitleStyle: {
-          color: '#fff'
-        }
+        title : 'Login'
     };
 
     render(){
+        var {navigate } = this.props.navigation;
         return(
             <Image style={styles.container} source={{uri: 'https://images.unsplash.com/photo-1503606426878-b4727b846b8c?auto=format&fit=crop&w=1268&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'}}>
-            <View >
-                <TouchableOpacity onPress={(this.onLogin.bind(this))} style={styles.mybutton}>
-                    <Text style={styles.mytext}>Login</Text>
+            <View>
+                <TouchableOpacity style={styles.mybutton} onPress={() =>navigate('Dashboard', {name: 'Ash'}) }>
+                    <Text style={styles.mytext}>to dashboard</Text>
                 </TouchableOpacity>
             </View>
             </Image>
