@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
+import {TabNavigator} from 'react-navigation';
+import HeroesView from './HeroesView';
 
 import {
     View, Text, TouchableOpacity
-} from 'react-native'
+} from 'react-native';
 
-export default class dashboardView extends React.Component{
+class dashboardView extends React.Component{
     static navigationOptions = {
         title: 'Dashboard',
         headerTintColor: 'white',
             headerStyle:{
             backgroundColor: '#4CAF50', 
-         }
+        }
     };
-
-   
 
     render(){
         var {params} = this.props.navigation.state;
@@ -26,3 +26,14 @@ export default class dashboardView extends React.Component{
         )
     }
 }
+
+const tabNavigator = TabNavigator({
+    Dashboard: {
+        screen: dashboardView,
+    },
+    Heroes: {
+        screen: HeroesView,
+    },
+});
+
+export default tabNavigator;

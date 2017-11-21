@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {
     View, Image, Text, TouchableHighlight,TouchableOpacity, Alert, StyleSheet
-} from 'react-native'
+} from 'react-native';
+
 
 export default class loginView extends React.Component{
     static navigationOptions = {
         header: null,
         headerMode: 'screen'
     };
-
     
-
     render(){
         var {navigate } = this.props.navigation;
         return(
