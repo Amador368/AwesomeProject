@@ -5,8 +5,11 @@ import {
 
 export default class loginView extends React.Component{
     static navigationOptions = {
-        title : 'Login'
+        header: null,
+        headerMode: 'screen'
     };
+
+    
 
     render(){
         var {navigate } = this.props.navigation;

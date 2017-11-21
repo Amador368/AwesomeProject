@@ -6,14 +6,22 @@ import {
 
 export default class dashboardView extends React.Component{
     static navigationOptions = {
-        title: 'Dashboard'
+        title: 'Dashboard',
+        headerTintColor: 'white',
+            headerStyle:{
+            backgroundColor: '#4CAF50', 
+         }
     };
+
+   
+
     render(){
         var {params} = this.props.navigation.state;
         return(
             <View>
                 <Text> This is the dashboard</Text>
                 <Text>the param is: {params.name}</Text>
+                <Text></Text>
             </View>
         )
     }
