@@ -3,9 +3,9 @@ import {
     View, Text, TouchableOpacity
 } from 'react-native';
 
-export default class HeroesView extends React.Component {
-  /*static navigationOptions = {
-    title: 'Heroes',
+export default class comicDetailView extends React.Component {
+ /* static navigationOptions = {
+    title: 'Detail Comic',
     headerTintColor: 'white',
         headerStyle:{
         backgroundColor: '#4CAF50', 
@@ -14,7 +14,7 @@ export default class HeroesView extends React.Component {
     render(){
       return (
         <View>
-          <Text>Heroes View</Text>
+          <Text>Heroes Detail View</Text>
         </View>
       )
     }

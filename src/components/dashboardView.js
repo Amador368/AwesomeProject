@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator} from 'react-navigation';
 import HeroesView from './HeroesView';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Crypto from 'crypto-js';
+import ComicDetailView from './comicDetailView';
+//import ComicItemView from './comicItemView';
 
 import {
     View, Text, TouchableOpacity, ListView, Image, StyleSheet
@@ -25,13 +27,9 @@ class dashboardView extends React.Component{
            loaded: false
         }
     }
-    static navigationOptions = {
-        title: 'Dashboard',
-        headerTintColor: 'white',
-            headerStyle:{
-            backgroundColor: '#4CAF50', 
-        }
-    };
+    //static navigationOptions = {
+      //  header: null
+    //};
 
     componentDidMount(){
         this.fetchData();
@@ -58,8 +56,16 @@ class dashboardView extends React.Component{
     }
 
     renderComic(comic){
+        var {navigate } = this.props.navigation;
+       // console.log(navigate)
+         //list view deberia estar en otro componente externo y tomar propiedades de navigation para cada item
         return (
-            <TouchableOpacity>
+          
+               // <HeroesView style={styles.listView}   comic={comic}/>
+     
+         
+            
+            <TouchableOpacity onPress={() => navigate('comicDetail', {name: 'Ash'}) }>
                <Image source={{uri: comic.thumbnail.path+'.jpg'}} style={styles.backgroundImage}>
                    <View style={styles.rightContainer}>
                         <Text style={styles.title}>{comic.name}</Text>
@@ -72,6 +78,7 @@ class dashboardView extends React.Component{
 
     render(){
         //var {params} = this.props.navigation.state;
+
         if(!this.state.loaded){
             return (
                 <View style={styles.container} >
@@ -80,6 +87,7 @@ class dashboardView extends React.Component{
             )
         } else {
             return(
+               
                 <ListView
                     dataSource = {this.state.dataSource }
                     renderRow =  {this.renderComic.bind(this)}
@@ -94,11 +102,42 @@ class dashboardView extends React.Component{
 const tabNavigator = TabNavigator({
     Dashboard: {
         screen: dashboardView,
+        /*navigationOptions: {
+            title: 'Dashboardddd',
+            headerTintColor: 'white',
+                headerStyle:{
+                backgroundColor: '#4CAF50', 
+            }
+        }*/
     },
     Heroes: {
         screen: HeroesView,
+        /*navigationOptions: {
+            title: 'Heroessss',
+            headerTintColor: 'white',
+                headerStyle:{
+                backgroundColor: '#4CAF50', 
+            }
+        }*/
     },
 });
+
+const mainNavigation = StackNavigator ({
+    main: { screen: tabNavigator, 
+        //navigationOptions: { haderMode: 'none' }
+    },
+    comicDetail: { screen: ComicDetailView,
+        //navigationOptions: { 
+         //   title: 'Comic detail xd',
+                  
+         //},
+         
+    }
+    
+}
+
+);
+
 
 const styles = StyleSheet.create({
     mytext: {
@@ -141,4 +180,4 @@ const styles = StyleSheet.create({
 
   })
 
-export default tabNavigator;
+export default mainNavigation;

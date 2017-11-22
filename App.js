@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
 const myscreens = StackNavigator({
   Login: { screen: LoginView },
   Dashboard: { screen: DashboardView }
-}
-);
+});
 
 AppRegistry.registerComponent('AwesomeProject', () => myscreens);
 //AppRegistry.registerComponent('AwesomeProject', () => App);
