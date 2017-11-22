@@ -72,14 +72,7 @@ class dashboardView extends React.Component{
 
     renderComic(comic){
         var {navigate } = this.props.navigation;
-       // console.log(navigate)
-         //list view deberia estar en otro componente externo y tomar propiedades de navigation para cada item
         return (
-          
-               // <HeroesView style={styles.listView}   comic={comic}/>
-     
-         
-            
             <TouchableOpacity onPress={() => navigate('comicDetail', {comic: comic } ) }>
                <Image source={{uri: comic.thumbnail.path+'.jpg'}} style={styles.backgroundImage}>
                    <View style={styles.rightContainer}>
@@ -92,8 +85,6 @@ class dashboardView extends React.Component{
     }
 
     render(){
-        //var {params} = this.props.navigation.state;
-
         if(!this.state.loaded){
             return (
                 <View style={styles.container} >

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    View, Text, TouchableOpacity, Image
+    View, Text, TouchableOpacity, Image, StyleSheet
 } from 'react-native';
 
 export default class comicDetailView extends React.Component {
@@ -16,12 +16,42 @@ export default class comicDetailView extends React.Component {
         backgroundColor: '#4CAF50', 
     }
   };
-    render(){
+  render(){
       const {state} = this.props.navigation;
       return (
-        <View>
-          <Text>Name: {state.params.comic.name}</Text>
+        <View style={styles.container}>
+          <Image source={{uri: state.params.comic.thumbnail.path+'.jpg'}}
+            style={styles.image} />
+              <Text style={styles.title}>Name: {state.params.comic.name}</Text>
+              <Text style={styles.description}>{state.params.comic.description}</Text>
+              <Text style={styles.description}>Disponibles: {state.params.comic.comics.available}</Text>
+              <Text style={styles.modified}>Modificado: {state.params.comic.modified}</Text>
         </View>
       )
-    }
+  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    //marginTop: 63,
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  title:{
+    fontSize:23,
+    color: '#007AFF'
+  },
+  description:{
+    marginTop:10,
+    fontSize: 16,
+  },
+  modified:{
+   marginTop: 10,
+   fontSize:16,
+   color: '#007AFF',
+  },
+  image: {
+    alignSelf: 'stretch',
+    height: 300,
+  },
+});
