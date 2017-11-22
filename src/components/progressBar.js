@@ -10,7 +10,7 @@ export default class ProgressBar extends React.Component {
   render(){
     return (
       <View>
-        <Text style={styles.mytext} >Progress Bar extern en src/componets XD XD</Text>
+        <Text style={styles.mytext} >Progress Bar extern en src/componets</Text>
       </View>
     )
   }

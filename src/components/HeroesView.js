@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    View, Text, TouchableOpacity
+    View, Text, TouchableOpacity, StyleSheet
 } from 'react-native';
 
 export default class HeroesView extends React.Component {
@@ -13,9 +13,15 @@ export default class HeroesView extends React.Component {
   };*/
     render(){
       return (
-        <View>
+        <View style={styles.wrapper}>
           <Text>Heroes View</Text>
         </View>
       )
     }
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+      padding: 20
+  }
+});

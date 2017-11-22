@@ -187,7 +187,6 @@ const styles = StyleSheet.create({
         paddingTop:30,
         height: 150,
     }
-
-  })
+  });
 
 export default mainNavigation;
