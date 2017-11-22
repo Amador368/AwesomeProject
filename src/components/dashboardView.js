@@ -80,7 +80,7 @@ class dashboardView extends React.Component{
      
          
             
-            <TouchableOpacity onPress={() => navigate('comicDetail', {name: 'Ash'}) }>
+            <TouchableOpacity onPress={() => navigate('comicDetail', {comic: comic } ) }>
                <Image source={{uri: comic.thumbnail.path+'.jpg'}} style={styles.backgroundImage}>
                    <View style={styles.rightContainer}>
                         <Text style={styles.title}>{comic.name}</Text>
