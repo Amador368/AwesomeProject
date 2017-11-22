@@ -27,10 +27,25 @@ class dashboardView extends React.Component{
            loaded: false
         }
     }
-    //static navigationOptions = {
-      //  header: null
-    //};
+    /*
+    static navigationOptions = {
+        header: null
+    };*/
 
+    /*
+    static navigationOptions = {
+        header: null,
+        headerMode: 'screen'
+    };*/
+
+     /*static navigationOptions = {
+    title: 'Heroes',
+    headerTintColor: 'white',
+        headerStyle:{
+        backgroundColor: '#4CAF50', 
+    }
+  };*/
+    
     componentDidMount(){
         this.fetchData();
     }
@@ -102,39 +117,43 @@ class dashboardView extends React.Component{
 const tabNavigator = TabNavigator({
     Dashboard: {
         screen: dashboardView,
-        /*navigationOptions: {
-            title: 'Dashboardddd',
+        navigationOptions: {
+            title: 'Dashboard',
             headerTintColor: 'white',
                 headerStyle:{
                 backgroundColor: '#4CAF50', 
             }
-        }*/
+        }
     },
     Heroes: {
         screen: HeroesView,
-        /*navigationOptions: {
-            title: 'Heroessss',
+        navigationOptions: {
+            title: 'Heroes',
             headerTintColor: 'white',
                 headerStyle:{
                 backgroundColor: '#4CAF50', 
             }
-        }*/
+        }
     },
 });
 
 const mainNavigation = StackNavigator ({
     main: { screen: tabNavigator, 
-        //navigationOptions: { haderMode: 'none' }
+        //navigationOptions: { header: null, headerMode: 'screen' }
+        /*navigationOptions: {
+            title: 'Heroes',
+            headerTintColor: 'white',
+                headerStyle:{
+                backgroundColor: '#4CAF50', 
+            }
+        }*/
     },
     comicDetail: { screen: ComicDetailView,
-        //navigationOptions: { 
-         //   title: 'Comic detail xd',
-                  
-         //},
-         
+      //  navigationOptions: { header: null, headerMode: 'screen' } 
     }
     
 }
+,{ headerMode: 'none' }
 
 );
 

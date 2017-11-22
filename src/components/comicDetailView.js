@@ -4,13 +4,13 @@ import {
 } from 'react-native';
 
 export default class comicDetailView extends React.Component {
- /* static navigationOptions = {
+  static navigationOptions = {
     title: 'Detail Comic',
     headerTintColor: 'white',
         headerStyle:{
         backgroundColor: '#4CAF50', 
     }
-  };*/
+  };
     render(){
       return (
         <View>
