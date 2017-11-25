@@ -30,5 +30,6 @@ const myscreens = StackNavigator({
   DrawerNav: { screen: DrawerNav}
 });
 
-AppRegistry.registerComponent('AwesomeProject', () => myscreens);
+export default myscreens;
+//AppRegistry.registerComponent('AwesomeProject', () => myscreens);
 //AppRegistry.registerComponent('AwesomeProject', () => App);
