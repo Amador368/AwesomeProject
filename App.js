@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Navigator, TouchableOpacity, Button, AppRegistr
 import {StackNavigator} from 'react-navigation';
 import LoginView from './src/components/loginView';
 import DashboardView from './src/components/dashboardView';
+import DrawerNav from './src/components/drawerNav';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +26,8 @@ const styles = StyleSheet.create({
 
 const myscreens = StackNavigator({
   Login: { screen: LoginView },
-  Dashboard: { screen: DashboardView }
+  Dashboard: { screen: DashboardView },
+  DrawerNav: { screen: DrawerNav}
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => myscreens);

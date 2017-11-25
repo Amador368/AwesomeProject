@@ -18,6 +18,10 @@ export default class loginView extends React.Component{
                 <TouchableOpacity style={styles.mybutton} onPress={() =>navigate('Dashboard', {name: 'Ash'}) }>
                     <Text style={styles.mytext}>to dashboard</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity style={styles.mybutton} onPress={() =>navigate('DrawerNav', {name: 'Ash'}) }>
+                    <Text style={styles.mytext}>to Drawer nav</Text>
+                </TouchableOpacity>
             </View>
             </Image>
         )
